@@ -253,7 +253,7 @@ class Vehicle:
         # Apply force
         #self.applyForce(steer)
 
-
+# REFACTOR LATER
 def pick_best_return_new(population, length_new):
     new_population = []
     for j in range(length_new):
@@ -292,6 +292,8 @@ def crossover_simple(X_dna, Y_dna):
     base[i] = alfa * X_dna[i] + (1 - alfa) * Y_dna[i]
     new_dna = base
     return new_dna
+
+# TODO: Outros crossovers
 
 
 def evolutionary(vehicles):
