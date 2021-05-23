@@ -85,8 +85,16 @@ def to_draw_vehicle_polygon(v1, window):
     p1 = v1.position +  v1.velocity.normalize() * 10
     p2 = v1.position + (v1.velocity.normalize() * 5).rotate(120)
     p3 = v1.position + (v1.velocity.normalize() * 5).rotate(-120)
-    pygame.draw.polygon(window, green, [p1, p2, p3])
-    pygame.draw.polygon(window, black, [p1, p2, p3], 1)
+    alfa = v1.health / 6
+    if alfa <= 0:
+        alfa = 0
+    R = int(255 * (1 - alfa))
+    G = int(255 * alfa)
+    B = 0
+    cor = (R, G, B)
+    #print(cor)
+    pygame.draw.polygon(window, cor, [p1, p2, p3])
+    pygame.draw.polygon(window, cor, [p1, p2, p3], 1)
 
 # TODO
 def to_draw_dna(window, v1, dna_view):
