@@ -17,7 +17,14 @@ def show_environment(window, walls, foods, poisons):
 
 # TODO
 def create_food(n):
-    pass
+    posicoes = []
+    for i in range(n):
+        x = random.randint(0, largura)
+        y = random.randint(0, altura)
+        v = pygame.Vector2(x,y)
+        posicoes.append(v)
+    return posicoes
+
 
 # TODO
 def add_food(n, food):
@@ -29,7 +36,13 @@ def insert_food(probability_food, food):
 
 # TODO
 def create_poison(n):
-    pass
+    posicoes = []
+    for i in range(n):
+        x = random.randint(0, largura)
+        y = random.randint(0, altura)
+        v = pygame.Vector2(x,y)
+        posicoes.append(v)
+    return posicoes
 
 # TODO
 def add_posion(n, poison):
