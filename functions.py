@@ -7,7 +7,13 @@ max_dots = 50
 
 # TODO
 def show_environment(window, walls, foods, poisons):
-    pass
+    for wall in walls:
+        pygame.draw.circle(window, black, wall, 1)
+    for food in foods:
+        pygame.draw.circle(window, green, food, 1)
+    for poison in poisons:
+        pygame.draw.circle(window, red, poison, 1)
+    return None
 
 # TODO
 def create_food(n):
