@@ -81,9 +81,12 @@ def to_draw_vehicle_picture(v1, vehicles, window):
     
     window.blit(vehicles[health_i], rect)
 
-# TODO
-def to_draw_vehicle_polygon():
-    pass
+def to_draw_vehicle_polygon(v1, window):
+    p1 = v1.position +  v1.velocity.normalize() * 10
+    p2 = v1.position + (v1.velocity.normalize() * 5).rotate(120)
+    p3 = v1.position + (v1.velocity.normalize() * 5).rotate(-120)
+    pygame.draw.polygon(window, green, [p1, p2, p3])
+    pygame.draw.polygon(window, black, [p1, p2, p3], 1)
 
 # TODO
 def to_draw_dna(window, v1, dna_view):

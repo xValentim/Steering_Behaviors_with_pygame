@@ -10,7 +10,7 @@ class Vehicle:
         self.velocity = pygame.Vector2(random.uniform(-2, 2), random.uniform(-2, 2))
         self.acceleration = pygame.Vector2()
         self.r = 0.8
-        v0_max = 3
+        v0_max = 2
         self.maxforce = 0.2
         self.health = 4
         self.life_time = 1

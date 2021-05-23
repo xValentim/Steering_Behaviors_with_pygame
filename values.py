@@ -2,7 +2,7 @@ import pygame
 import random
 from math import *
 
-fps = 480
+fps = 60
 t_max = 1200
 t = 0
 total_life_time = 0

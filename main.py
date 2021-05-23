@@ -22,11 +22,11 @@ print('generation,peso food,peso poison,raio food,raio poison,average life time,
 # Constroi o tapete de sierpinski
 walls = sierpinski_carpet(active=False)
 
-vehicles_list = create_vehicles(300)
+vehicles_list = create_vehicles(100)
 
-food = create_food(300)
+food = create_food(50)
 
-poison = create_poison(300)
+poison = create_poison(50)
 
 continua = True
 while continua and number_of_generation <= max_generation:
@@ -66,12 +66,9 @@ while continua and number_of_generation <= max_generation:
         #target = pygame.mouse.get_pos()
         
     window.fill(gray)
-    #pygame.draw.line(window, black, (tamanho_barra, 0), (tamanho_barra, altura), width=3)
 
-    #TODO: Function Insert food
     insert_food(0.4, food)
 
-    #TODO: Function Insert posion
     insert_poison(0.4, poison)
     
     #TODO: Projeto final
@@ -95,10 +92,10 @@ while continua and number_of_generation <= max_generation:
         average_life_time = total_life_time / total_generation  
         average_fitness = total_fitness / total_generation
         print(f'{number_of_generation},{total_dna[0]},{total_dna[1]},{total_dna[3]},{total_dna[4]},{average_life_time},{average_fitness}')
-        '''vehicles_list = pick_best_return_new(vehicles_list, 300)
-        food = create_food(300)
-        poison = create_poison(300)'''
-        vehicles_list, food, poison = new_generation(300, 300, 300)
+        vehicles_list = pick_best_return_new(vehicles_list, 100)
+        food = create_food(50)
+        poison = create_poison(50)
+        #vehicles_list, food, poison = new_generation(300, 300, 300)
 
         total_dna = [0] * 6
         total_generation = 0
@@ -120,36 +117,13 @@ while continua and number_of_generation <= max_generation:
         if newVehicle != None:
             vehicles_list.append(newVehicle)
 
-        # to_draw_vehicle_picture
+        # draw vehicles
         to_draw_vehicle_picture(v1, vehicles, window)
-        '''health_i = round(v1.health) + 1
-        if health_i < 1:
-            health_i = 1
-        elif health_i > 7:
-            health_i = 7
-        k = float(v1.r)
-        vehicles[health_i] = pygame.transform.scale(vehicles_base[health_i], (int(k * 30), int(k * 16)))
-
-        teta = v1.velocity.as_polar()
-        teta = teta[1]
-        
-        vehicles[health_i] = pygame.transform.rotate(vehicles[health_i], -teta)
-        
-        rect = vehicles[health_i].get_rect()
-        rect.center = v1.position
-        
-        window.blit(vehicles[health_i], rect)'''
-        #################
-
         #to_draw_vehicle_polygon(v1, window)
-
         to_draw_dna(window, v1, dna_view)
-        #print(v1.health)
 
         if v1.dead():
             food.append(v1.position)
-            '''for i in range(6):
-                total_dna[i] += v1.dna[i]'''
             total_dna[0] += v1.dna[0]
             total_dna[1] += v1.dna[1]
             total_dna[3] += v1.dna[3]
@@ -158,16 +132,8 @@ while continua and number_of_generation <= max_generation:
             total_generation += 1
             total_fitness += v1.fitness
             # Avaliar se precisa
-            '''if v1.life_time > t_major:
-                t_major = v1.life_time
-                v_major = v1'''
             del(vehicles_list[i])
         i += 1
-
-    '''texto(f"V1: Health={velocidade:.7f} Dna={}", white, 20, 10, altura - 80)
-    texto(f"V2: {velocidade:.7f}", white, 20, 10, altura - 60)
-    texto(f"V3: {min(p1.distancias):.5f}", white, 20, 10, altura - 40)
-    texto(f"V4: {max(p1.distancias):.5f}", white, 20, 10, altura - 20)'''
 
     show_environment(window, walls, food, poison)
 
