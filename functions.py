@@ -31,7 +31,11 @@ def add_food(n, food):
 
 # TODO
 def insert_food(probability_food, food):
-    pass
+    z = random.random()
+    if z <= probability_food:
+        food.append(pygame.Vector2(random.randint (0, largura), random.randint (0, altura)))
+    return food
+
 
 # TODO
 def create_poison(n):
@@ -48,7 +52,10 @@ def add_posion(n, poison):
 
 # TODO
 def insert_poison(probability_poison, poison):
-    pass
+    z = random.random()
+    if z <= probability_poison:
+        poison.append(pygame.Vector2(random.randint (0, largura), random.randint (0, altura)))
+    return poison
 
 # TODO
 def new_generation(start_vehicles=50, start_food=50, start_poison=50):
