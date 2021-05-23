@@ -59,7 +59,7 @@ def insert_poison(probability_poison, poison):
 
 # TODO
 def new_generation(start_vehicles=50, start_food=50, start_poison=50):
-    pass
+    return create_vehicles (start_vehicles), create_food (start_food), create_poison (start_poison)
     
 # TODO
 def to_draw_vehicle_picture(v1, vehicles, window):
