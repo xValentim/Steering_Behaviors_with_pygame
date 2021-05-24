@@ -253,6 +253,9 @@ class Vehicle:
         # Apply force
         #self.applyForce(steer)
 
+class Predator(Vehicle):
+    pass
+
 # REFACTOR LATER
 def pick_best_return_new(population, length_new):
     new_population = []
