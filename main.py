@@ -2,6 +2,8 @@ import pygame
 import numpy
 import random
 
+from init_screen import *
+
 #from pygame.transform import average_color
 from vehicle import *
 from values import *
@@ -18,6 +20,8 @@ window = pygame.display.set_mode((largura, altura))
 #window2 = pygame.display.set_mode((int(largura/4), int(altura/4)))
 pygame.display.set_caption("Evolutionary Steering Behaviors")
 window.fill(gray)
+continua = init_screen(window, relogio)
+
 print('generation,peso food,peso poison,raio food,raio poison,average life time,average fitness')
 # Constroi o tapete de sierpinski
 walls = sierpinski_carpet(active=False)
@@ -28,7 +32,7 @@ food = create_food(50)
 
 poison = create_poison(50)
 
-continua = True
+
 while continua and number_of_generation <= max_generation:
     for event in pygame.event.get():
         #print(event)
@@ -137,12 +141,12 @@ while continua and number_of_generation <= max_generation:
 
     show_environment(window, walls, food, poison)
 
-    '''texto(window, f"Numero de vehicles: {len(vehicles_list)}", white, 20, 10, altura - 120)
+    texto(window, f"Numero de vehicles: {len(vehicles_list)}", white, 20, 10, altura - 120)
     texto(window, f"Geração: {number_of_generation}", white, 20, 10, altura - 100)
     texto(window, f"Maior tempo de vida: {v_major.life_time} ", white, 20, 10, altura - 80)
     texto(window, f'food peso: {v_major.dna[0]} || raio food: {v_major.dna[3]}', white, 20, 10, altura - 60)
     texto(window, f'poison peso: {v_major.dna[1]} || raio poison: {v_major.dna[4]}', white, 20, 10, altura - 40)
-    texto(window, f"Tempo atual: {t} || Tempo maximo: {t_max} || fps: {fps}", white, 20, 10, altura - 20)'''
+    texto(window, f"Tempo atual: {t} || Tempo maximo: {t_max} || fps: {fps}", white, 20, 10, altura - 20)
 
     relogio.tick(fps)
     pygame.display.update()

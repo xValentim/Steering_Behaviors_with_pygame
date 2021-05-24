@@ -14,6 +14,7 @@ max_generation = 1000
 largura = 1020
 altura = 600
 tamanho_barra = 200
+centro = pygame.Vector2(largura / 2, altura / 2)
 dna_view = False
 
 gray = (51, 51, 51)
