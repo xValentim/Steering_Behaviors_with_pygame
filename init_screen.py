@@ -28,8 +28,6 @@ def init_screen(window, relogio):
                 if event.key == pygame.K_ESCAPE:
                     return False
             if distancia_ao_centro < 20 and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
-                
-                
                 return True
             if (pos_mouse - pygame.Vector2(largura / 2, altura / 2 + 45)).magnitude() < 20 and event.type == pygame.MOUSEBUTTONDOWN and event.button == 1:
                 return False
