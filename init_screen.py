@@ -33,7 +33,18 @@ def init_screen(window, relogio):
                 return False
         window.fill(gray)
 
-        
+        texto(window, f''' Para jogar aperte no botão "Start".''', white, 15, 0 , altura - 110)
+        texto(window, f''' Durante o jogo pressione as teclas para''', white, 15, 0 , altura - 100)
+        texto(window, f''' F - para adicionar mais comidas''', white, 15, 0 , altura - 90)
+        texto(window, f''' P - para adicionar mais venenos''', white, 15, 0 , altura - 80)
+        texto(window, f''' V - para adicionar mais veículos''', white, 15, 0 , altura - 70)
+        texto(window, f''' D - para visualizar ou deixar de ver o DNA dos veículos''', white, 15, 0 , altura - 60)
+        texto(window, f''' R - para passar para a proxima geração de veículos''', white, 15, 0 , altura - 50)
+        texto(window, f''' L - para diminuir o FPS''', white, 15, 0 , altura - 40)
+        texto(window, f''' S - para aumentar o FPS''', white, 15, 0 , altura - 30)
+        texto(window, f''' M - para printar os pesos da comida, do raio da comida, do veneno e''', white, 15, 0 , altura - 20)
+        texto(window, f''' do raio do veneno para o maior veículo e o maior tempo de vida''', white, 15, 0 , altura - 10)
+
 
         texto(window, f"Start", white, 30, largura / 2 - 25, altura / 2 - 12)
         if distancia_ao_centro < 20:
