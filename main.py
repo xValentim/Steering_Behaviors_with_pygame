@@ -122,8 +122,8 @@ while continua and number_of_generation <= max_generation:
             vehicles_list.append(newVehicle)
 
         # draw vehicles
-        #to_draw_vehicle_picture(v1, vehicles, window)
-        to_draw_vehicle_polygon(v1, window)
+        to_draw_vehicle_picture(v1, vehicles, window)
+        #to_draw_vehicle_polygon(v1, window)
         to_draw_dna(window, v1, dna_view)
 
         if v1.dead():
@@ -152,8 +152,3 @@ while continua and number_of_generation <= max_generation:
     pygame.display.update()
 
 pygame.quit()
-'''
-    Tempo de vida: 3836
-    dna_food peso: 1.9922644193998096 || dna_raio_food: 63.95870245480027
-    dna_poison peso: -1.1600502475317431 || dna_raio_poison: 52.61828340020249
-'''
