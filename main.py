@@ -140,6 +140,9 @@ while continua and number_of_generation <= max_generation:
         i += 1
 
     show_environment(window, walls, food, poison)
+    # TODO: functions.py
+    # show_environment_pictures(window, walls, food, poison)
+
 
     texto(window, f"Numero de vehicles: {len(vehicles_list)}", white, 20, 10, altura - 120)
     texto(window, f"Geração: {number_of_generation}", white, 20, 10, altura - 100)

@@ -15,6 +15,12 @@ def show_environment(window, walls, foods, poisons):
         pygame.draw.circle(window, red, poison, 1)
     return None
 
+
+# TODO
+def show_environment_pictures(window, walls, foods, poisons):
+    pass
+
+
 # TODO
 def create_food(n):
     posicoes = []
