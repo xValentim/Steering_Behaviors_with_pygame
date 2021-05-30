@@ -12,7 +12,7 @@ def create_rect(window, color, center, b, h):
     return None
 
 def init_screen(window, relogio):
-    vehicles_list = create_vehicles(50)
+    vehicles_list = create_vehicles(25)
 
     init_sc = True
     while init_sc:
@@ -34,6 +34,7 @@ def init_screen(window, relogio):
         window.fill(gray)
 
         # texto(window, f''' Genetics.io''', white, 50, largura/2 - 100 , altura/2 - 150)
+
         texto(window, f' The Evolution Game', white, 70, largura/2 - 230 , altura/2 - 150)
         texto(window, f' Para jogar aperte no botão "Start".', white, 15, 0 , altura - 110)
         texto(window, f' Durante o jogo pressione as teclas para', white, 15, 0 , altura - 100)
