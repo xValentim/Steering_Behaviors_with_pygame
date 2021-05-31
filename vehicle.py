@@ -24,12 +24,11 @@ class Vehicle:
         Rp_max = 100
         mr = 0.01
         if dna == []:
-            
             # Peso food
             A = random.uniform(-kf_max, kf_max)
             # Peso poison
             B = random.uniform(-kp_max, kp_max)
-            # Peso Predator
+            # Peso predator
             C = random.uniform(-3, 3)
             # Food Perception
             D = random.uniform(10, Rf_max)
