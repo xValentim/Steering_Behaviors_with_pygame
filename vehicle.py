@@ -5,10 +5,11 @@ import random
 from values import *
 
 class Vehicle:
-    def __init__(self, x=0 , y=0, dna=[]):
+    def __init__(self, x=0 , y=0, dna=[], flag_predator=False):
         self.position = pygame.Vector2(x, y)
         self.velocity = pygame.Vector2(random.uniform(-2, 2), random.uniform(-2, 2))
         self.acceleration = pygame.Vector2()
+        self.predator = flag_predator
         self.r = 0.8
         v0_max = 2
         self.maxforce = 0.2
@@ -28,14 +29,13 @@ class Vehicle:
             A = random.uniform(-kf_max, kf_max)
             # Peso poison
             B = random.uniform(-kp_max, kp_max)
-            # Peso Wall
-            #C = random.uniform(-2, 0)
-            C = random.uniform(-3, 0)
+            # Peso Predator
+            C = random.uniform(-3, 3)
             # Food Perception
             D = random.uniform(10, Rf_max)
             # Poison Perception
             E = random.uniform(10, Rp_max)
-            # Wall Perception
+            # Predator Perception
             F = random.uniform(10, Rp_max)
             self.dna = [A, B, C, D, E, F]
             #self.skin = round(a + b)
@@ -104,6 +104,8 @@ class Vehicle:
         #self.maxspeed = v0_max / abs(kf-kp)
         #self.maxspeed = 4
                 
+    def is_predator(self):
+        return self.predator
 
     #TODO: Projeto final
     def limit(self, limit_value, vector):
