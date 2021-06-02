@@ -28,17 +28,17 @@ green = (0, 250, 0)
 blue = (0, 0, 250)
 cyan = (0, 15, 150)
 
-'''vehicle_img = pygame.image.load("imgs_vehicles/vehicle_none.png")
+vehicle_img = pygame.image.load("imgs_vehicles/vehicle_none.png")
 vehicle_img0 = pygame.image.load("imgs_vehicles/vehicle_none.png")
-vehicle_img1 = pygame.image.load("imgs_vehicles/virus_1-Png.png")
-vehicle_img2 = pygame.image.load("imgs_vehicles/virus_2-Png.png")
-vehicle_img3 = pygame.image.load("imgs_vehicles/virus_3-Png.png")
-vehicle_img4 = pygame.image.load("imgs_vehicles/virus_4-Png.png")
-vehicle_img5 = pygame.image.load("imgs_vehicles/virus_5-png.png")
-vehicle_img6 = pygame.image.load("imgs_vehicles/virus_6-Png.png")
-vehicle_img7 = pygame.image.load("imgs_vehicles/virus_7-png.png")'''
-poison_img = pygame.image.load("img_vehicles/veneninho_vermelho.png")
-food_img= pygame.image.load("img_vehicles/hamburguer.png")
+vehicle_img1 = pygame.image.load("imgs_vehicles/vehicle_health1.png")
+vehicle_img2 = pygame.image.load("imgs_vehicles/vehicle_health2.png")
+vehicle_img3 = pygame.image.load("imgs_vehicles/vehicle_health3.png")
+vehicle_img4 = pygame.image.load("imgs_vehicles/vehicle_health4.png")
+vehicle_img5 = pygame.image.load("imgs_vehicles/vehicle_health5.png")
+vehicle_img6 = pygame.image.load("imgs_vehicles/vehicle_health6.png")
+vehicle_img7 = pygame.image.load("imgs_vehicles/vehicle_health7.png")
+poison_img = pygame.image.load("imgs_vehicles/veneninho_vermelho.png")
+food_img= pygame.image.load("imgs_vehicles/hamburguer.png")
 
 vehicles_base = [
     vehicle_img0,

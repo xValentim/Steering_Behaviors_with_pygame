@@ -11,7 +11,7 @@ class Vehicle:
         self.acceleration = pygame.Vector2()
         self.predator = flag_predator
         self.r = 0.8
-        v0_max = 2
+        v0_max = 4
         self.maxforce = 0.2
         self.health = 4
         self.life_time = 1
@@ -98,10 +98,10 @@ class Vehicle:
         cos_b = (Rf + Rp) / (Rf_max + Rp_max)
         sen_b = abs((cos_b * cos_b - 1)) ** 0.5
         sen_a_plus_b = sen_a * cos_b + sen_b * cos_a
-        self.maxspeed = v0_max * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b
+        #self.maxspeed = v0_max * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b
         #print(v0_max, sen_a_plus_b)
         #self.maxspeed = v0_max / abs(kf-kp)
-        #self.maxspeed = 4
+        self.maxspeed = 4
                 
     def is_predator(self):
         return self.predator
