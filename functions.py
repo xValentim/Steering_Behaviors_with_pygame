@@ -19,14 +19,15 @@ def show_environment_picture(window, walls, foods, poisons):
     for wall in walls:
         pygame.draw.circle(window, black, wall, 1)
     for food in foods:
-        rect = food_img.get_rect()
+        food_img_2 = pygame.transform.scale(food_img, (30, 20))
+        rect = food_img_2.get_rect()
         rect.center = food
-        window.blit(food_img, rect)
-       
+        window.blit(food_img_2, rect)
     for poison in poisons:
-        rect = poison_img.get_rect()
+        poison_img_2 = pygame.transform.scale(poison_img, (20, 10))
+        rect = poison_img_2.get_rect()
         rect.center = poison
-        window.blit(poison_img, rect)
+        window.blit(poison_img_2, rect)
     return None 
 
 # TODO
