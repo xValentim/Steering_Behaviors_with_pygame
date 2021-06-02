@@ -37,7 +37,8 @@ vehicle_img4 = pygame.image.load("imgs_vehicles/virus_4-Png.png")
 vehicle_img5 = pygame.image.load("imgs_vehicles/virus_5-png.png")
 vehicle_img6 = pygame.image.load("imgs_vehicles/virus_6-Png.png")
 vehicle_img7 = pygame.image.load("imgs_vehicles/virus_7-png.png")
-
+poison = pygame.image.load("img_vehicles/veneninho_vermelho.png")
+food = pygame.image.load("img_vehicles/hamburguer.png")
 
 vehicles_base = [
     vehicle_img0,
