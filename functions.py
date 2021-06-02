@@ -15,6 +15,20 @@ def show_environment(window, walls, foods, poisons):
         pygame.draw.circle(window, red, poison, 1)
     return None
 
+def show_environment_picture(window, walls, foods, poisons):
+    for wall in walls:
+        pygame.draw.circle(window, black, wall, 1)
+    for food in foods:
+        rect = food_img.get_rect()
+        rect.center = food
+        window.blit(food_img, rect)
+       
+    for poison in poisons:
+        rect = poison_img.get_rect()
+        rect.center = poison
+        window.blit(poison_img, rect)
+    return None 
+
 
 # TODO
 def show_environment_pictures(window, walls, foods, poisons):
@@ -51,7 +65,7 @@ def create_poison(n):
     return posicoes
 
 # TODO
-def add_posion(n, poison):
+def add_poison(n, poison):
     for i in range(n):
         poison.append(pygame.Vector2(random.randint (0, largura), random.randint (0, altura)))
     return poison
@@ -88,12 +102,9 @@ def to_draw_vehicle_picture(v1, vehicles, window):
     window.blit(vehicles[health_i], rect)
 
 def to_draw_vehicle_polygon(v1, window):
-    max_speed = v1.maxspeed
-    k = v1.velocity.magnitude_squared() / (max_speed * max_speed)
-    teta = int(110 + 50 * k)
-    p1 = v1.position +  v1.velocity.normalize() * 12
-    p2 = v1.position + (v1.velocity.normalize() * 6).rotate(teta)
-    p3 = v1.position + (v1.velocity.normalize() * 6).rotate(-teta)
+    p1 = v1.position +  v1.velocity.normalize() * 10
+    p2 = v1.position + (v1.velocity.normalize() * 5).rotate(120)
+    p3 = v1.position + (v1.velocity.normalize() * 5).rotate(-120)
     alfa = v1.health / 6
     if alfa <= 0:
         alfa = 0
@@ -112,9 +123,6 @@ def to_draw_dna(window, v1, dna_view):
         pygame.draw.line(window, red, v1.position, (v1.position + v1.velocity.normalize() * v1.dna[1] * 20), width=2)
         pygame.draw.circle(window, green, v1.position, int(v1.dna[3]), width=1)
         pygame.draw.circle(window, red, v1.position, int(v1.dna[4]), width=1)    
-
-
-
 
 #
 def texto(window, msg, cor, tam, x, y):
