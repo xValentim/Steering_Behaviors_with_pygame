@@ -44,7 +44,7 @@ while continua and number_of_generation <= max_generation:
             if event.key == pygame.K_f:
                 food = add_food(50, food)
             if event.key == pygame.K_p:
-                poison = add_posion(50, poison)
+                poison = add_poison(50, poison)
             if event.key == pygame.K_v:
                 vehicles_list = add_vehicles(50, vehicles_list)
             if event.key == pygame.K_d:
