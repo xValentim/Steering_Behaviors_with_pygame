@@ -29,12 +29,6 @@ def show_environment_picture(window, walls, foods, poisons):
         window.blit(poison_img, rect)
     return None 
 
-
-# TODO
-def show_environment_pictures(window, walls, foods, poisons):
-    pass
-
-
 # TODO
 def create_food(n):
     posicoes = []

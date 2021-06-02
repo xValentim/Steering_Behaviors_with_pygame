@@ -139,7 +139,8 @@ while continua and number_of_generation <= max_generation:
             del(vehicles_list[i])
         i += 1
 
-    show_environment(window, walls, food, poison)
+    #show_environment(window, walls, food, poison)
+    show_environment_picture(window, walls, food, poison)
     # TODO: functions.py
     # show_environment_pictures(window, walls, food, poison)
 
