@@ -88,9 +88,12 @@ def to_draw_vehicle_picture(v1, vehicles, window):
     window.blit(vehicles[health_i], rect)
 
 def to_draw_vehicle_polygon(v1, window):
-    p1 = v1.position +  v1.velocity.normalize() * 10
-    p2 = v1.position + (v1.velocity.normalize() * 5).rotate(120)
-    p3 = v1.position + (v1.velocity.normalize() * 5).rotate(-120)
+    max_speed = v1.maxspeed
+    k = v1.velocity.magnitude_squared() / (max_speed * max_speed)
+    teta = int(110 + 50 * k)
+    p1 = v1.position +  v1.velocity.normalize() * 12
+    p2 = v1.position + (v1.velocity.normalize() * 6).rotate(teta)
+    p3 = v1.position + (v1.velocity.normalize() * 6).rotate(-teta)
     alfa = v1.health / 6
     if alfa <= 0:
         alfa = 0

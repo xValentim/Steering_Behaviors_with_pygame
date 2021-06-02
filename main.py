@@ -122,8 +122,8 @@ while continua and number_of_generation <= max_generation:
             vehicles_list.append(newVehicle)
 
         # draw vehicles
-        to_draw_vehicle_picture(v1, vehicles, window)
-        #to_draw_vehicle_polygon(v1, window)
+        #to_draw_vehicle_picture(v1, vehicles, window)
+        to_draw_vehicle_polygon(v1, window)
         to_draw_dna(window, v1, dna_view)
 
         if v1.dead():
