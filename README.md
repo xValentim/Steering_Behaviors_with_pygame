@@ -40,6 +40,10 @@ Para validar o modelo e ver que os veículos estão de fato aprendendo, fizemos 
 ## Conclusões
 Tendo em vista que o nosso modelo é coerente com a realidade e mostra resultados, é possível aplicar esse tipo de algoritmo para múltiplos tipos de problemas, como aplicação em jogos eletrônicos e aplicação em rôbos autônomos que precisam descrever trajetórias específicas (como estacionar um carro).
 
+## Vídeo da simulação
+Acompanhe a simulação no vídeo que está no link a seguir:
+https://www.youtube.com/watch?v=dsKBrfoSqOE
+
 ## Bibliografia
 
 - V. MNIH. Playing Atari with Deep Reinforcement Learning, Deep Mind, ArXiv, 2013. https://arxiv.org/pdf/1312.5602v1.pdf.
