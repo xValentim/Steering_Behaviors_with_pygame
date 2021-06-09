@@ -17,13 +17,12 @@ t_major = 0
 v_major = Vehicle(0, 0)
 relogio = pygame.time.Clock()
 window = pygame.display.set_mode((largura, altura))
-#window2 = pygame.display.set_mode((int(largura/4), int(altura/4)))
 pygame.display.set_caption("Evolutionary Steering Behaviors")
 window.fill(gray)
 continua = init_screen(window, relogio)
 
 print('generation,peso food,peso poison,raio food,raio poison,average life time,average fitness')
-# Constroi o tapete de sierpinski
+# Constroi o tapete de sierpinski (inativo)
 walls = sierpinski_carpet(active=False)
 
 vehicles_list = create_vehicles(100)
@@ -66,16 +65,13 @@ while continua and number_of_generation <= max_generation:
                 print(f'Tempo de vida: {v_major2.life_time}')
                 print(f'food peso: {v_major2.dna[0]} || raio food: {v_major2.dna[3]}')
                 print(f'poison peso: {v_major2.dna[1]} || raio poison: {v_major2.dna[4]}')
-                
-        #target = pygame.mouse.get_pos()
-        
+                    
     window.fill(gray)
 
     insert_food(0.4, food)
 
     insert_poison(0.4, poison)
     
-    #TODO: Projeto final
     if t >= t_max or len(vehicles_list) == 0:
         #vehicles_list, food, poison = new_generation()
         #vehicles_list, food, poison = add_vehicles(50 - len(vehicles_list), vehicles_list), add_food(50 - len(food), food), add_posion(50 - len(poison), poison)
@@ -135,13 +131,11 @@ while continua and number_of_generation <= max_generation:
             total_life_time += v1.life_time
             total_generation += 1
             total_fitness += v1.fitness
-            # Avaliar se precisa
             del(vehicles_list[i])
         i += 1
 
     #show_environment(window, walls, food, poison)
     show_environment_picture(window, walls, food, poison)
-    # TODO: functions.py
     # show_environment_pictures(window, walls, food, poison)
 
 
