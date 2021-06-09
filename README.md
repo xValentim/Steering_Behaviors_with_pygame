@@ -60,5 +60,5 @@ Tendo em vista que o nosso modelo é coerente com a realidade e mostra resultado
 
 ## Tecnologias usadas nesse projeto
 
-![Arduino](https://img.shields.io/badge/pygame-007ACC?style=for-the-badge&logo=Python&logoColor=green)
+![Pygame](https://img.shields.io/badge/pygame-007ACC?style=for-the-badge&logo=Python&logoColor=green)
 ![Python](https://img.shields.io/badge/Python-2D7DB1?style=for-the-badge&logo=python&logoColor=yellow)
