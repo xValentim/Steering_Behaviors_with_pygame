@@ -147,10 +147,10 @@ while continua and number_of_generation <= max_generation:
 
     texto(window, f"Numero de vehicles: {len(vehicles_list)}", white, 20, 10, altura - 120)
     texto(window, f"Geração: {number_of_generation}", white, 20, 10, altura - 100)
-    texto(window, f"Maior tempo de vida: {v_major.life_time} ", white, 20, 10, altura - 80)
-    texto(window, f'food peso: {v_major.dna[0]} || raio food: {v_major.dna[3]}', white, 20, 10, altura - 60)
-    texto(window, f'poison peso: {v_major.dna[1]} || raio poison: {v_major.dna[4]}', white, 20, 10, altura - 40)
-    texto(window, f"Tempo atual: {t} || Tempo maximo: {t_max} || fps: {fps}", white, 20, 10, altura - 20)
+    #texto(window, f"Maior tempo de vida: {v_major.life_time} ", white, 20, 10, altura - 80)
+    #texto(window, f'food peso: {v_major.dna[0]} || raio food: {v_major.dna[3]}', white, 20, 10, altura - 60)
+    #texto(window, f'poison peso: {v_major.dna[1]} || raio poison: {v_major.dna[4]}', white, 20, 10, altura - 40)
+    texto(window, f"Tempo atual: {t} || Tempo maximo: {t_max} || fps: {fps}", white, 20, 10, altura - 80)
 
     relogio.tick(fps)
     pygame.display.update()
