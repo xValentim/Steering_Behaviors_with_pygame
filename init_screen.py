@@ -6,11 +6,12 @@ from functions import *
 from vehicle import *
 
 
-
+# Centraliza retangulo
 def create_rect(window, color, center, b, h):
     pygame.draw.rect(window, color, [center[0] - b / 2, center[1] - h / 2, b, h])
     return None
 
+# Tela inicial
 def init_screen(window, relogio):
     vehicles_list = create_vehicles(25)
 
@@ -33,8 +34,6 @@ def init_screen(window, relogio):
                 return False
         window.fill(gray)
 
-        # texto(window, f''' Genetics.io''', white, 50, largura/2 - 100 , altura/2 - 150)
-
         texto(window, f' The Evolution Game', white, 70, largura/2 - 230 , altura/2 - 150)
         texto(window, f' Para jogar aperte no botão "Start".', white, 15, 30 , altura - 140)
         texto(window, f' Durante o jogo pressione as teclas para', white, 15, 30 , altura - 130)
@@ -47,7 +46,6 @@ def init_screen(window, relogio):
         texto(window, f' S - para aumentar o FPS', white, 15, 30 , altura - 60)
         texto(window, f' M - para printar os pesos da comida, do raio da comida, do veneno e', white, 15, 30 , altura - 50)
         texto(window, f' do raio do veneno para o maior veículo e o maior tempo de vida', white, 15, 30 , altura - 40)
-
 
         texto(window, f"Start", white, 30, largura / 2 - 25, altura / 2 - 12)
         if distancia_ao_centro < 20:
