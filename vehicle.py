@@ -4,11 +4,34 @@ import math
 import random
 from values import *
 
-class Vehicle:
-    def __init__(self, x=0 , y=0, dna=[], flag_predator=False):
+class Particle:
+    def __init__(self, x=0, y=0):
         self.position = pygame.Vector2(x, y)
         self.velocity = pygame.Vector2(random.uniform(-2, 2), random.uniform(-2, 2))
         self.acceleration = pygame.Vector2()
+    
+    def applyForce(self, force):
+        self.acceleration += force
+
+    def seek(self, target):
+        # Calculate desired
+        desired = target - self.position
+        desired = desired.normalize() * self.maxspeed
+
+        # Calculate steer (Craig Raynolds classic vehicle)
+        # steering = desired - velocity
+        steer = desired - self.velocity
+
+        # Limit steer
+        steer = self.limit(self.maxforce, steer)
+
+        return steer
+
+    
+
+class Vehicle(Particle):
+    def __init__(self, x=0 , y=0, dna=[], flag_predator=False):
+        super().__init__(x, y)
         self.predator = flag_predator
         self.r = 0.8
         v0_max = 4
@@ -234,22 +257,22 @@ class Vehicle:
         self.position.x = self.position.x % largura
         self.position.y = self.position.y % altura
 
-    def applyForce(self, force):
-        self.acceleration += force
+    # def applyForce(self, force):
+    #     self.acceleration += force
     
-    def seek(self, target):
-        # Calculate desired
-        desired = target - self.position
-        desired = desired.normalize() * self.maxspeed
+    # def seek(self, target):
+    #     # Calculate desired
+    #     desired = target - self.position
+    #     desired = desired.normalize() * self.maxspeed
 
-        # Calculate steer (Craig Raynolds classic vehicle)
-        # steering = desired - velocity
-        steer = desired - self.velocity
+    #     # Calculate steer (Craig Raynolds classic vehicle)
+    #     # steering = desired - velocity
+    #     steer = desired - self.velocity
 
-        # Limit steer
-        steer = self.limit(self.maxforce, steer)
+    #     # Limit steer
+    #     steer = self.limit(self.maxforce, steer)
 
-        return steer
+    #     return steer
 
         # Apply force
         #self.applyForce(steer)
