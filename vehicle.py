@@ -4,11 +4,54 @@ import math
 import random
 from values import *
 
-class Vehicle:
-    def __init__(self, x=0 , y=0, dna=[], flag_predator=False):
+class Particle:
+    def __init__(self, x=0, y=0):
         self.position = pygame.Vector2(x, y)
         self.velocity = pygame.Vector2(random.uniform(-2, 2), random.uniform(-2, 2))
         self.acceleration = pygame.Vector2()
+    
+    def applyForce(self, force):
+        self.acceleration += force
+
+    def limit(self, limit_value, vector):
+        if vector.magnitude_squared() > limit_value * limit_value:
+            return (vector.normalize()) * limit_value
+        else:
+            return vector
+
+    def update_move(self, maxspeed=20):
+        self.velocity += self.acceleration
+
+        # Limit is maxspeed
+        self.velocity = self.limit(maxspeed, self.velocity)
+
+        # Update location with new velocity
+        self.position += self.velocity
+
+        # Boundary condition (depende da posição)
+        #self.periodic_boundary()
+        
+        # Set zero acceleration
+        self.acceleration = self.acceleration * 0
+
+    def seek(self, target):
+        # Calculate desired
+        desired = target - self.position
+        desired = desired.normalize() * self.maxspeed
+
+        # Calculate steer (Craig Raynolds classic vehicle)
+        # steering = desired - velocity
+        steer = desired - self.velocity
+
+        # Limit steer
+        steer = self.limit(self.maxforce, steer)
+
+        return steer
+
+    
+class Vehicle(Particle):
+    def __init__(self, x=0 , y=0, dna=[], flag_predator=False):
+        super().__init__(x, y)
         self.predator = flag_predator
         self.r = 0.8
         v0_max = 4
@@ -89,30 +132,10 @@ class Vehicle:
                     self.dna[5] = 10
                 elif self.dna[5] > 150:
                     self.dna[5] = 150
-        kf = self.dna[0]
-        kp = self.dna[1]
-        Rf = self.dna[3]
-        Rp = self.dna[4]
-        cos_a = abs((kf - kp)) / (kf_max + kp_max)
-        sen_a = abs((cos_a * cos_a - 1)) ** 0.5
-        cos_b = (Rf + Rp) / (Rf_max + Rp_max)
-        sen_b = abs((cos_b * cos_b - 1)) ** 0.5
-        sen_a_plus_b = sen_a * cos_b + sen_b * cos_a
-        #self.maxspeed = v0_max * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b * sen_a_plus_b
-        #print(v0_max, sen_a_plus_b)
-        #self.maxspeed = v0_max / abs(kf-kp)
         self.maxspeed = 4
                 
     def is_predator(self):
         return self.predator
-
-    #TODO: Projeto final
-    def limit(self, limit_value, vector):
-        if vector.magnitude_squared() > limit_value * limit_value:
-            return (vector.normalize()) * limit_value
-        else:
-            return vector
-        #return (vector.normalize()) * limit_value
 
     def behaviors(self, good, bad, wall):
         steerG = self.eat(good, 0.5, self.dna[3])
@@ -180,20 +203,8 @@ class Vehicle:
         # Boundary condition (depende da aceleração)
         self.boundary()
 
-        # Update velocity
-        self.velocity += self.acceleration
-
-        # Limit is maxspeed
-        self.velocity = self.limit(self.maxspeed, self.velocity)
-
-        # Update location with new velocity
-        self.position += self.velocity
-
-        # Boundary condition (depende da posição)
-        #self.periodic_boundary()
-        
-        # Set zero acceleration
-        self.acceleration = self.acceleration * 0
+        # Atualização a movimentação mecânica
+        self.update_move(self.maxspeed)
 
     def boundary(self):
         d = 15
@@ -234,25 +245,6 @@ class Vehicle:
         self.position.x = self.position.x % largura
         self.position.y = self.position.y % altura
 
-    def applyForce(self, force):
-        self.acceleration += force
-    
-    def seek(self, target):
-        # Calculate desired
-        desired = target - self.position
-        desired = desired.normalize() * self.maxspeed
-
-        # Calculate steer (Craig Raynolds classic vehicle)
-        # steering = desired - velocity
-        steer = desired - self.velocity
-
-        # Limit steer
-        steer = self.limit(self.maxforce, steer)
-
-        return steer
-
-        # Apply force
-        #self.applyForce(steer)
 
 class Predator(Vehicle):
     pass
